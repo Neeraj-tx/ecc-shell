@@ -4,7 +4,6 @@ import {
   FormControl,
   Select,
   MenuItem,
-  InputLabel,
   ListSubheader,
   TextField,
   InputAdornment,
@@ -17,7 +16,7 @@ const containsText = (text, searchText) =>
 const allOptions = ["Client1", "Prospect2", "Client2", "Prospect1"];
 
 export default function SearchableDropdown() {
-  const [selectedOption, setSelectedOption] = useState(allOptions[0]);
+  const [selectedOption, setSelectedOption] = useState("Select Client");
 
   const [searchText, setSearchText] = useState("");
   const displayedOptions = useMemo(
@@ -26,17 +25,26 @@ export default function SearchableDropdown() {
   );
 
   return (
-    <Box sx={{ m: 1, fontFamily: "sans-serif", textAlign: "center" }}>
+    <Box
+      sx={{
+        m: 1,
+        fontFamily: "sans-serif",
+        textAlign: "center",
+        color: "white",
+      }}
+    >
       <FormControl fullWidth>
-        <InputLabel id="search-select-label">
+        {/* <InputLabel id="search-select-label">
           Context(Prospect/Client)
-        </InputLabel>
+        </InputLabel> */}
         <Select
           // Disables auto focus on MenuItems and allows TextField to be in focus
           MenuProps={{ autoFocus: false }}
           labelId="search-select-label"
           id="search-select"
           value={selectedOption}
+          sx={{ backgroundColor: "white" }}
+          defaultValue={null}
           label="Context"
           onChange={(e) => setSelectedOption(e.target.value)}
           onClose={() => setSearchText("")}

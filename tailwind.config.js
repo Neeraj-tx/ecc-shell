@@ -2,7 +2,11 @@
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        tekhelet: "#4B1E86",
+      },
+    },
   },
   plugins: [],
 };
